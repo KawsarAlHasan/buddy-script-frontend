@@ -1,8 +1,41 @@
-import { Post, Story, User } from "@/types";
-
 const avatar = (seed: string) => `https://i.pravatar.cc/150?u=${seed}`;
 
-export const currentUser: User = {
+type CurrentUser = {
+  id: string;
+  name: string;
+  title: string;
+  avatar: string;
+  online: boolean;
+};
+
+type SuggestedPerson = {
+  id: string;
+  name: string;
+  title: string;
+  avatar: string;
+};
+
+type Friend = {
+  id: string;
+  name: string;
+  title: string;
+  avatar: string;
+  online: boolean;
+  lastSeen: string;
+};
+
+type Story = {
+  id: string;
+  user: {
+    id: string;
+    name: string;
+    avatar: string;
+  };
+  cover: string;
+  isOwn?: boolean;
+};
+
+export const currentUser: CurrentUser = {
   id: "u0",
   name: "Dylan Field",
   title: "CEO of Figma",
@@ -10,7 +43,7 @@ export const currentUser: User = {
   online: true,
 };
 
-export const suggestedPeople: User[] = [
+export const suggestedPeople: SuggestedPerson[] = [
   {
     id: "u1",
     name: "Steve Jobs",
@@ -31,7 +64,7 @@ export const suggestedPeople: User[] = [
   },
 ];
 
-export const friends: User[] = [
+export const friends: Friend[] = [
   {
     id: "u1",
     name: "Steve Jobs",
@@ -113,8 +146,6 @@ export const friends: User[] = [
     lastSeen: "Just now",
   },
 ];
-
-
 
 export const stories: Story[] = [
   { id: "s0", user: currentUser, cover: "", isOwn: true },
