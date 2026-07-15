@@ -2,7 +2,8 @@
 import Cookies from "js-cookie";
 import axios from "axios";
 
-export const BASE_URL = "https://buddy-script-backend-y8kh.onrender.com";
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://10.10.26.235:13500";
 
 export const API = axios.create({
   baseURL: `${BASE_URL}/api/v1`,
